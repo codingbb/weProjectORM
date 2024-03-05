@@ -40,7 +40,6 @@ public class ResumeController {
             skillRepository.save(skill, resumeId);
         }
 
-
        User sessionUser = (User) session.getAttribute("sessionUser");
         return "redirect:/resume/" + sessionUser.getId() + "/manageResume";
     }

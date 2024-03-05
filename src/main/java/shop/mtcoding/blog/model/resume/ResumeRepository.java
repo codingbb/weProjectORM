@@ -5,6 +5,7 @@ import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import shop.mtcoding.blog.model.skill.Skill;
 
 import java.util.List;
 
@@ -32,7 +33,16 @@ public class ResumeRepository {
 
         // 조회 pk max값
         // select max(id) from resume_tb
-        return 5;
+
+        String a = """
+                select * from resume_tb where id = (select max(id) from resume_tb);
+                """;
+
+        Query skillQuery = em.createNativeQuery(a, Resume.class);
+        Resume resume = (Resume) skillQuery.getSingleResult();
+
+
+        return resume.getId();
     }
 
      public List<Resume> findAll() {

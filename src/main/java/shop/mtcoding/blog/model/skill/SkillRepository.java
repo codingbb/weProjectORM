@@ -20,7 +20,7 @@ public class SkillRepository {
     }
 
     @Transactional
-    public Skill save(String skill, int resumeId) {
+    public void save(String skill, int resumeId) {
         String q = """
                 insert into skill_tb (resume_id, jobs_id, name, role) values (?, ?, ?, ?)
                 """;
@@ -30,14 +30,6 @@ public class SkillRepository {
         query.setParameter(3, skill);
         query.setParameter(4, 1);
         query.executeUpdate();
-
-        String a = """
-                select * from skill_tb where id = (select max(id) from resume_tb);
-                """;
-
-        Query skillQuery = em.createNativeQuery(a, Skill.class);
-        Skill skills = (Skill) skillQuery.getSingleResult();
-        return skills;
 
     }
 }

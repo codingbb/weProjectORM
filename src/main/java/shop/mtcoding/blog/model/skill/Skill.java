@@ -26,6 +26,4 @@ public class Skill {
     @Column(nullable = false)
     private Integer role; // 1
 
-    private String color;
-
 }
