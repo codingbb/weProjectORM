@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import shop.mtcoding.blog.model.skill.Skill;
+import shop.mtcoding.blog.model.user.User;
 
 import java.util.List;
 
@@ -16,34 +17,37 @@ public class ResumeRepository {
     private final EntityManager em;
 
     @Transactional
-    public int save(ResumeRequest.WriterDTO requestDTO) {
+    public int save(ResumeRequest.WriteDTO requestDTO, User sessionUser) {
         String q = """
-            insert into resume_tb(title, area, edu, career, introduce, port_link, is_public, created_at) 
-            values (?, ?, ?, ?, ?, ?, ?, now());
-            """;
+                insert into resume_tb (user_id, area, edu, career, introduce, port_link, title, is_public, created_at) 
+                values (?, ?, ?, ?, ?, ?, ?, ?, now())
+                """;
+
         Query query = em.createNativeQuery(q);
-        query.setParameter(1, requestDTO.getTitle());
+        query.setParameter(1, sessionUser.getId());
         query.setParameter(2, requestDTO.getArea());
         query.setParameter(3, requestDTO.getEdu());
         query.setParameter(4, requestDTO.getCareer());
         query.setParameter(5, requestDTO.getIntroduce());
         query.setParameter(6, requestDTO.getPortLink());
-        query.setParameter(7, requestDTO.getIsPublic());
+        query.setParameter(7, requestDTO.getTitle());
+        query.setParameter(8, requestDTO.getIsPublic());
+
         query.executeUpdate();
 
-        // 조회 pk max값
-        // select max(id) from resume_tb
-
         String a = """
-                select * from resume_tb where id = (select max(id) from resume_tb);
+                select * from resume_tb where id = (select max(id) from resume_tb); 
                 """;
 
         Query skillQuery = em.createNativeQuery(a, Resume.class);
         Resume resume = (Resume) skillQuery.getSingleResult();
 
 
+
         return resume.getId();
+
     }
+
 
      public List<Resume> findAll() {
           String q = """
@@ -113,6 +117,7 @@ public class ResumeRepository {
         query.setParameter(1, id);
         query.executeUpdate();
     }
+
 
 
 }

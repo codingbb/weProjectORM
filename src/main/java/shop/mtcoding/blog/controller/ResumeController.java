@@ -28,20 +28,18 @@ public class ResumeController {
 
     //save를 resume과 skill에 2번 해준다
     @PostMapping("/resume/save")
-    public String save(ResumeRequest.WriterDTO requestDTO, HttpServletRequest request) {
-        //resume save //작성한 이력서 저장
-        int resumeId = resumeRepository.save(requestDTO);
+    public String save(ResumeRequest.WriteDTO requestDTO) {
         System.out.println(requestDTO);
 
-        //skill save - 스킬은 여러개가 들어오니까 for문 돌려준다.
-        // (이력서 1개당) 스킬 여러개 저장
-        // max값,, 최신껄 가져오려고 !
-        for(String skill : requestDTO.getSkills()){
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        //resume 이력서 저장
+        int resumeId = resumeRepository.save(requestDTO, sessionUser);
+
+        for (String skill : requestDTO.getSkills()) {
             skillRepository.save(skill, resumeId);
         }
 
-       User sessionUser = (User) session.getAttribute("sessionUser");
-        return "redirect:/resume/" + sessionUser.getId() + "/manageResume";
+        return null;
     }
 
     @GetMapping("/resume/{id}/manageResume")

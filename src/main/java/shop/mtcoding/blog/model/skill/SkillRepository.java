@@ -19,17 +19,5 @@ public class SkillRepository {
         return query.getResultList();
     }
 
-    @Transactional
-    public void save(String skill, int resumeId) {
-        String q = """
-                insert into skill_tb (resume_id, jobs_id, name, role) values (?, ?, ?, ?)
-                """;
-        Query query = em.createNativeQuery(q);
-        query.setParameter(1, resumeId);
-        query.setParameter(2, null);
-        query.setParameter(3, skill);
-        query.setParameter(4, 1);
-        query.executeUpdate();
 
-    }
 }

@@ -42,8 +42,8 @@ public class Resume {
     private String portLink;
 
     @Column(nullable = false)
-    // private Boolean isPublic; // 이부분 오류나길래 일단 String 바꿔놓음
-    private String isPublic;
+     private Boolean isPublic; // 이부분 오류나길래 일단 String 바꿔놓음
+//    private String isPublic;
 
     @Column(nullable = false)
     private Timestamp createdAt;
