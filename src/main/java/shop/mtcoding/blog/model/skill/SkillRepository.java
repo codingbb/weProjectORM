@@ -5,6 +5,8 @@ import jakarta.persistence.Query;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import shop.mtcoding.blog.model.resume.Resume;
+import shop.mtcoding.blog.model.resume.ResumeRequest;
 
 import java.util.List;
 
@@ -18,6 +20,41 @@ public class SkillRepository {
         query.setParameter(1, jobsId);
         return query.getResultList();
     }
+
+//    public List<Skill> findSkillName(SkillResponse.SkillDTO skillDTO) {
+//        Query query = em.createNativeQuery("select * from skill_tb where resume_id = ?", Skill.class);
+//        query.setParameter(1, skillDTO.getResume_id());
+//        return query.getResultList();
+//    }
+
+    public List<Skill> findAllSkill(SkillResponse.SkillDTO skillDTO) {
+        String q = """
+                  select * from skill_tb where resume_id = ?
+                  """;
+
+        Query query = em.createNativeQuery(q, Skill.class);
+        query.setParameter(1, skillDTO.getResume_id());
+        List<Skill> skills = query.getResultList();
+
+        return skills;
+    }
+
+
+    @Transactional
+    public void save(String skill, int resumeId) {
+        String q = """
+                insert into skill_tb (resume_id, jobs_id, name, role) values (?, ?, ?, ?);
+                """;
+        Query query = em.createNativeQuery(q);
+        query.setParameter(1, resumeId);
+        query.setParameter(2, null);
+        query.setParameter(3, skill);
+        query.setParameter(4, 1);
+        query.executeUpdate();
+
+    }
+
+
 
 
 }

@@ -12,9 +12,12 @@ import shop.mtcoding.blog.model.resume.Resume;
 import shop.mtcoding.blog.model.resume.ResumeRepository;
 import shop.mtcoding.blog.model.resume.ResumeRequest;
 import shop.mtcoding.blog.model.scrap.ScrapRepository;
+import shop.mtcoding.blog.model.skill.Skill;
 import shop.mtcoding.blog.model.skill.SkillRepository;
+import shop.mtcoding.blog.model.skill.SkillResponse;
 import shop.mtcoding.blog.model.user.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -28,7 +31,7 @@ public class ResumeController {
 
     //save를 resume과 skill에 2번 해준다
     @PostMapping("/resume/save")
-    public String save(ResumeRequest.WriteDTO requestDTO) {
+    public String save(ResumeRequest.WriteDTO requestDTO, HttpServletRequest request, SkillResponse.SkillDTO skillDTO) {
         System.out.println(requestDTO);
 
         User sessionUser = (User) session.getAttribute("sessionUser");
@@ -39,12 +42,22 @@ public class ResumeController {
             skillRepository.save(skill, resumeId);
         }
 
-        return null;
+        List<Skill> skillList = skillRepository.findAllSkill(skillDTO);
+        request.setAttribute("skillList", skillList);
+
+//        List<Skill> skillList = skillRepository.findSkillName(skillDTO);
+//        request.setAttribute("skillList", skillList);
+
+        return "redirect:/resume/manageResume";
     }
 
-    @GetMapping("/resume/{id}/manageResume")
-    public String manageResume(HttpServletRequest request , @PathVariable Integer id) {
-        List<Resume> resumeList = resumeRepository.findByResumeAndUser(id);
+
+    @GetMapping("/resume/manageResume")
+    public String manageResume(HttpServletRequest request) {
+
+        User sessionUser = (User) session.getAttribute("sessionUser");
+
+        List<Resume> resumeList = resumeRepository.findByUserId(sessionUser);
         System.out.println(resumeList);
 
         request.setAttribute("resumeList", resumeList);

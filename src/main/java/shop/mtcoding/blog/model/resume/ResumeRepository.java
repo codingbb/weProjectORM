@@ -42,8 +42,6 @@ public class ResumeRepository {
         Query skillQuery = em.createNativeQuery(a, Resume.class);
         Resume resume = (Resume) skillQuery.getSingleResult();
 
-
-
         return resume.getId();
 
     }
@@ -60,30 +58,42 @@ public class ResumeRepository {
           return resumeList;
       }
 
+    public List<Resume> findByUserId(User sessionUser) {
+        String q = """
+                  select * from resume_tb where user_id = ? order by id desc
+                  """;
 
-   public List<Object[]> findAll(Integer userId) {
-//        String q = """
-//                select * from resume_tb order by id desc
-//                """;
+        Query query = em.createNativeQuery(q, Resume.class);
+        query.setParameter(1, sessionUser.getId());
+        List<Resume> resumeList = query.getResultList();
 
-       String q = """
-              SELECT r.id, r.title, r.edu, r.career, r.area, s.resume_id, s.name , s.color
-              FROM resume_tb r
-              join user_tb u
-              ON (r.user_id = u.id)
-              join skill_tb s
-              on r.id = s.resume_id
-              where r.id = ?;
-               """;
+        return resumeList;
+    }
 
-       Query query = em.createNativeQuery(q);
 
-       query.setParameter(1,userId);
-
-       List<Object[]> resumeList = query.getResultList();
-
-       return resumeList;
-   }
+//   public List<Object[]> findAll(Integer userId) {
+////        String q = """
+////                select * from resume_tb order by id desc
+////                """;
+//
+//       String q = """
+//              SELECT r.id, r.title, r.edu, r.career, r.area, s.resume_id, s.name , s.color
+//              FROM resume_tb r
+//              join user_tb u
+//              ON (r.user_id = u.id)
+//              join skill_tb s
+//              on r.id = s.resume_id
+//              where r.id = ?;
+//               """;
+//
+//       Query query = em.createNativeQuery(q);
+//
+//       query.setParameter(1,userId);
+//
+//       List<Object[]> resumeList = query.getResultList();
+//
+//       return resumeList;
+//   }
 
     public Resume findById(int id) {
         String q = """
