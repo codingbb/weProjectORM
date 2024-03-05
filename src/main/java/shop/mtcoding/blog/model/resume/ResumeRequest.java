@@ -13,9 +13,8 @@ public class ResumeRequest {
 
     @Data
     @NoArgsConstructor
-    public static class ResumeWriterDTO {
+    public static class WriterDTO {
         private Integer id;
-        private Integer userId;
         private String title;
         private String area;
         private String edu;
@@ -24,6 +23,9 @@ public class ResumeRequest {
         private String portLink;
         private Boolean isPublic;
         private Timestamp createdAt;
+
+        private List<String> skills = new ArrayList<>();
+
     }
 
     @Data

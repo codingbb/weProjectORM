@@ -54,7 +54,7 @@ public class MainController {
                 List<Skill> skillList = skillRepository.findAllV2(dto.getId());
                 dto.setSkillList(skillList);
             });
-            request.setAttribute("keyword", "");
+            request.setAttribute("keyword", keyword);
             request.setAttribute("pages", pageActive);
             request.setAttribute("firstPage", firstPage);
             request.setAttribute("lastPage", lastPage);

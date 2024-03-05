@@ -23,39 +23,39 @@ insert into resume_tb(user_id, title, area, edu, career, introduce, port_link, i
 INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
 INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
 INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
-INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '서울', '24년도 04월 마감! Oracle 사용자', '4년제', '신입', '성실하고 열심히 일하실 분 모집!', '2024-05-22', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '울산', '프런트 엔드/백엔드 개발자 채용', '학력무관', '시니어(10년 이상)', '성실하고 열심히 일하실 분 모집!', '2024-04-09', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (5, '부산', '함께 일하실 분 모집!', '학력무관', '신입', '성실하고 열심히 일하실 분 모집!', '2024-03-29', '백엔드', NOW());
+-- INSERT INTO jobs_tb(user_id, area, title, edu, career, content, dead_line, task, created_at) VALUES (4, '부산', '배달의 민족 24년도 백엔드 신입 개발자 모집', '학력무관', '미들(4~8년)', '성실하고 열심히 일하실 분 모집!', '2024-03-10', '백엔드', NOW());
 
 
 -- 스킬 테이블 (개인)
-insert into skill_tb (resume_id, name, role, color) values(1, 'java', 1,'yellow');
-insert into skill_tb (resume_id, name, role, color) values(1, 'javaScript', 1,'purple');
-insert into skill_tb (resume_id, name, role, color) values(1, 'HTML/CSS', 1,'green');
-insert into skill_tb (resume_id, name, role, color) values(1, 'Webpack', 1,'blue');
-insert into skill_tb (resume_id, name, role, color) values(2, 'jQuery', 1,'blue');
-insert into skill_tb (resume_id, name, role, color) values(2, 'Oracle', 1,'black');
-insert into skill_tb (resume_id, name, role, color) values(3, 'React', 1,'red');
-insert into skill_tb (resume_id, name, role, color) values(3, 'Java', 1,'yellow');
+insert into skill_tb (resume_id, name, role) values(1, 'java', 1);
+insert into skill_tb (resume_id, name, role) values(1, 'javaScript',1);
+insert into skill_tb (resume_id, name, role) values(1, 'HTML/CSS', 1);
+insert into skill_tb (resume_id, name, role) values(1, 'Webpack', 1);
+insert into skill_tb (resume_id, name, role) values(2, 'jQuery', 1);
+insert into skill_tb (resume_id, name, role) values(2, 'Oracle', 1);
+insert into skill_tb (resume_id, name, role) values(3, 'React', 1);
+insert into skill_tb (resume_id, name, role) values(3, 'Java', 1);
 
 
 -- 스킬 테이블 (기업)

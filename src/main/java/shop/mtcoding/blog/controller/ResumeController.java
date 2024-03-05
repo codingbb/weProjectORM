@@ -4,20 +4,17 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import shop.mtcoding.blog.dto.scrap.ScrapResponse;
-import shop.mtcoding.blog.model.comp.CompRequest;
 import shop.mtcoding.blog.model.resume.Resume;
 import shop.mtcoding.blog.model.resume.ResumeRepository;
 import shop.mtcoding.blog.model.resume.ResumeRequest;
 import shop.mtcoding.blog.model.scrap.ScrapRepository;
-import shop.mtcoding.blog.model.skill.SkillRequest;
+import shop.mtcoding.blog.model.skill.SkillRepository;
 import shop.mtcoding.blog.model.user.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -27,10 +24,30 @@ public class ResumeController {
     private final HttpSession session;
     private final ResumeRepository resumeRepository;
     private final ScrapRepository scrapRepository;
+    private final SkillRepository skillRepository;
 
-    @GetMapping("/resume/manageResume")
-    public String manageResume(HttpServletRequest request) {
-        List<Resume> resumeList = resumeRepository.findAll();
+    //save를 resume과 skill에 2번 해준다
+    @PostMapping("/resume/save")
+    public String save(ResumeRequest.WriterDTO requestDTO, HttpServletRequest request) {
+        //resume save //작성한 이력서 저장
+        int resumeId = resumeRepository.save(requestDTO);
+        System.out.println(requestDTO);
+
+        //skill save - 스킬은 여러개가 들어오니까 for문 돌려준다.
+        // (이력서 1개당) 스킬 여러개 저장
+        // max값,, 최신껄 가져오려고 !
+        for(String skill : requestDTO.getSkills()){
+            skillRepository.save(skill, resumeId);
+        }
+
+
+       User sessionUser = (User) session.getAttribute("sessionUser");
+        return "redirect:/resume/" + sessionUser.getId() + "/manageResume";
+    }
+
+    @GetMapping("/resume/{id}/manageResume")
+    public String manageResume(HttpServletRequest request , @PathVariable Integer id) {
+        List<Resume> resumeList = resumeRepository.findByResumeAndUser(id);
         System.out.println(resumeList);
 
         request.setAttribute("resumeList", resumeList);
@@ -160,13 +177,7 @@ public class ResumeController {
     }
 
 
-    @PostMapping("/resume/save")
-    public String save(ResumeRequest.ResumeWriterDTO requestDTO, HttpServletRequest request) {
-        System.out.println(requestDTO);
-        resumeRepository.save(requestDTO);
 
-        return "redirect:/resume/manageResume";
-    }
 
 
     @PostMapping("/resume/{id}/delete")
