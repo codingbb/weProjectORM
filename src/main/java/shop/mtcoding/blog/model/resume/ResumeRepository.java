@@ -16,35 +16,7 @@ public class ResumeRepository {
 
     private final EntityManager em;
 
-    @Transactional
-    public int save(ResumeRequest.WriteDTO requestDTO, User sessionUser) {
-        String q = """
-                insert into resume_tb (user_id, area, edu, career, introduce, port_link, title, is_public, created_at) 
-                values (?, ?, ?, ?, ?, ?, ?, ?, now())
-                """;
 
-        Query query = em.createNativeQuery(q);
-        query.setParameter(1, sessionUser.getId());
-        query.setParameter(2, requestDTO.getArea());
-        query.setParameter(3, requestDTO.getEdu());
-        query.setParameter(4, requestDTO.getCareer());
-        query.setParameter(5, requestDTO.getIntroduce());
-        query.setParameter(6, requestDTO.getPortLink());
-        query.setParameter(7, requestDTO.getTitle());
-        query.setParameter(8, requestDTO.getIsPublic());
-
-        query.executeUpdate();
-
-        String a = """
-                select * from resume_tb where id = (select max(id) from resume_tb); 
-                """;
-
-        Query skillQuery = em.createNativeQuery(a, Resume.class);
-        Resume resume = (Resume) skillQuery.getSingleResult();
-
-        return resume.getId();
-
-    }
 
 
      public List<Resume> findAll() {

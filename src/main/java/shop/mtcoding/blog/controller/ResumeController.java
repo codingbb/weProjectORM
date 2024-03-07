@@ -31,125 +31,21 @@ public class ResumeController {
 
     //save를 resume과 skill에 2번 해준다
     @PostMapping("/resume/save")
-    public String save(ResumeRequest.WriteDTO requestDTO, HttpServletRequest request, SkillResponse.SkillDTO skillDTO) {
-        System.out.println(requestDTO);
+    public String save() {
 
-        User sessionUser = (User) session.getAttribute("sessionUser");
-        //resume 이력서 저장
-        int resumeId = resumeRepository.save(requestDTO, sessionUser);
-
-        for (String skill : requestDTO.getSkills()) {
-            skillRepository.save(skill, resumeId);
-        }
-
-        List<Skill> skillList = skillRepository.findAllSkill(skillDTO);
-        request.setAttribute("skillList", skillList);
-
-//        List<Skill> skillList = skillRepository.findSkillName(skillDTO);
-//        request.setAttribute("skillList", skillList);
-
+        //이거 터지기 때문에 추후 resumeDTO에서 받아와서 getUserid로 바꿔주던가
+        //return "redirect:/resume/"+ sessionUser.getId() +"/manageResume"; 로 해주면 됨
         return "redirect:/resume/manageResume";
     }
 
 
-    @GetMapping("/resume/manageResume")
-    public String manageResume(HttpServletRequest request) {
+    @GetMapping("/resume/{id}/manageResume")
+    public String manageResume(@PathVariable Integer id, HttpServletRequest request) {
 
-        User sessionUser = (User) session.getAttribute("sessionUser");
-
-        List<Resume> resumeList = resumeRepository.findByUserId(sessionUser);
-        System.out.println(resumeList);
-
-        request.setAttribute("resumeList", resumeList);
 
         return "/resume/manageResume";
     }
 
-//    @GetMapping("/resume/{userId}/manageResume")
-//    public String manageResume(@PathVariable Integer userId, HttpServletRequest request) {
-//        List<Object[]> resumeList = resumeRepository.findAll(userId);
-//        List<ResumeRequest.UserViewDTO> userViewDTOList = new ArrayList<>();
-//
-//        Integer nextNumber = 1;
-//        ResumeRequest.UserViewDTO userViewDTO = new ResumeRequest.UserViewDTO();
-//
-//        for (int i = 0; i < resumeList.size(); i++) {
-//            Object[] user = resumeList.get(i);
-//            if (userViewDTO.getId() == user[0]){
-//                // 스킬 이름 생성
-//                String color = "";
-//                if (((String)user[7]).equals("yellow")){
-//                    color = "badge rounded-pill text-bg-warning";
-//                }
-//                if(((String)user[7]).equals("red")){
-//                    color = "badge rounded-pill text-bg-danger";
-//                }
-//                if(((String)user[7]).equals("blue")){
-//                    color = "badge rounded-pill text-bg-info";
-//                }
-//                if(((String)user[7]).equals("green")){
-//                    color = "badge rounded-pill text-bg-success";
-//                }
-//                if(((String)user[7]).equals("green")){
-//                    color = "badge rounded-pill text-bg-success";
-//                }
-//                if(((String)user[7]).equals("green")){
-//                    color = "badge rounded-pill text-bg-success";
-//                }
-//                SkillRequest.UserskillDTO userskillDTO = SkillRequest.UserskillDTO.builder().name((String) user[6]).color((String) user[7]).build();
-//
-//                //  userViewDTO.getSkillList().add(userskillDTO);
-//
-//            }else{
-//                List<SkillRequest.CompskillDTO> skillList = new ArrayList<>();
-//
-//
-//                String color = "";
-//                if (((String)user[7]).equals("yellow")){
-//                    color = "badge rounded-pill text-bg-warning";
-//                }
-//                if(((String)user[7]).equals("red")){
-//                    color = "badge rounded-pill text-bg-danger";
-//                }
-//                if(((String)user[7]).equals("blud")){
-//                    color = "badge rounded-pill text-bg-info";
-//                }
-//                if(((String)user[7]).equals("green")){
-//                    color = "badge rounded-pill text-bg-success";
-//                }
-//                if(((String)user[7]).equals("purple")){
-//                    color = "badge rounded-pill text-bg-success";
-//                }
-//                if(((String)user[7]).equals("green")){
-//                    color = "badge rounded-pill text-bg-success";
-//                }
-//
-//                skillList.add(SkillRequest.CompskillDTO.builder().name((String) user[6]).color(color).build());
-//
-//                userViewDTO = new ResumeRequest.UserViewDTO();
-//                userViewDTO.setId((Integer) user[0]);
-//                userViewDTO.setUserId((Integer) user[1]);
-//                userViewDTO.setTitle((String) user[2]);
-//                userViewDTO.setEdu((String) user[3]);
-//                userViewDTO.setArea((String) user[4]);
-//                userViewDTO.setResumeId((String) user[5]);
-//                userViewDTO.setNumber(nextNumber++);
-//                userViewDTO.setSkillList(skillList);
-//
-//                userViewDTOList.add(userViewDTO);
-//
-//                System.out.println(userViewDTOList);
-//
-//                session.setAttribute("resumeList",userViewDTOList);
-//
-//            }
-//
-//        }
-
-//        request.setAttribute("resumeList", resumeList);
-//
-//        return "/resume/manageResume";
-//    }
 
 
     @GetMapping("/resume/resumeDetail/{id}")

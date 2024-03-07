@@ -11,25 +11,7 @@ import java.util.List;
 
 public class ResumeRequest {
 
-    @Data
-    @NoArgsConstructor
-    public static class WriteDTO {
-        private Integer id;
-        private Integer userId;
-        private String area;
-        private String edu;
-        private String career;
-        private String introduce;
-        private String portLink;
-        private String title;
-        private Boolean isPublic;
-        private Timestamp createdAt;
 
-        private List<String> skills = new ArrayList<>();
-
-        //mustache랑 name 값 맞는지 확인
-
-    }
 
     @Data
     public static class UserViewDTO{

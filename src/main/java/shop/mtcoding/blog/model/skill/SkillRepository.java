@@ -27,32 +27,8 @@ public class SkillRepository {
 //        return query.getResultList();
 //    }
 
-    public List<Skill> findAllSkill(SkillResponse.SkillDTO skillDTO) {
-        String q = """
-                  select * from skill_tb where resume_id = ?
-                  """;
-
-        Query query = em.createNativeQuery(q, Skill.class);
-        query.setParameter(1, skillDTO.getResume_id());
-        List<Skill> skills = query.getResultList();
-
-        return skills;
-    }
 
 
-    @Transactional
-    public void save(String skill, int resumeId) {
-        String q = """
-                insert into skill_tb (resume_id, jobs_id, name, role) values (?, ?, ?, ?);
-                """;
-        Query query = em.createNativeQuery(q);
-        query.setParameter(1, resumeId);
-        query.setParameter(2, null);
-        query.setParameter(3, skill);
-        query.setParameter(4, 1);
-        query.executeUpdate();
-
-    }
 
 
 
