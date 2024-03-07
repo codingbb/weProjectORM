@@ -11,10 +11,27 @@ import java.util.List;
 
 public class ResumeRequest {
 
+    @Data
+    @NoArgsConstructor
+    public static class ResumeWriteDTO {
+        private Integer id; //이력서 아이디
+        private Integer userId;
+        private String area;
+        private String edu;
+        private String career;
+        private String introduce;
+        private String portLink;
+        private String title;
+        private Boolean isPublic;
+        private Timestamp createdAt;
+
+        private List<String> skills;
+
+    }
 
 
     @Data
-    public static class UserViewDTO{
+    public static class UserViewDTO {
         private Integer id;
         private Integer userId;
         private String title;

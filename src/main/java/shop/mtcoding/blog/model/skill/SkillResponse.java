@@ -5,6 +5,13 @@ import lombok.NoArgsConstructor;
 
 public class SkillResponse {
 
+    @Data
+    public class ResumeSkillDTO {
+        private String name;
 
+        public ResumeSkillDTO(String name) {
+            this.name = name;
+        }
+    }
 
 }

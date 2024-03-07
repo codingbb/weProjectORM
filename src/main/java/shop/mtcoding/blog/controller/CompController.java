@@ -155,14 +155,14 @@ public class CompController {
         return "/comp/profileUpdateForm";
     }
 
-    @GetMapping("/comp/readResume")
-    public String readResume(HttpServletRequest request){
-        List<Resume> resumeList = resumeRepository.findAll();
-
-        request.setAttribute("resumeList2", resumeList);
-
-        return "/comp/readResume";
-    }
+//    @GetMapping("/comp/readResume")
+//    public String readResume(HttpServletRequest request){
+//        List<Resume> resumeList = resumeRepository.findAll();
+//
+//        request.setAttribute("resumeList2", resumeList);
+//
+//        return "/comp/readResume";
+//    }
 
 
     @GetMapping("/comp/scrap")

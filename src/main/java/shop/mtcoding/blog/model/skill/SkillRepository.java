@@ -21,16 +21,20 @@ public class SkillRepository {
         return query.getResultList();
     }
 
-//    public List<Skill> findSkillName(SkillResponse.SkillDTO skillDTO) {
-//        Query query = em.createNativeQuery("select * from skill_tb where resume_id = ?", Skill.class);
-//        query.setParameter(1, skillDTO.getResume_id());
-//        return query.getResultList();
-//    }
+    @Transactional
+    public void saveSkill(List<String> skills, Integer resumeId) {
 
+        for (String skill : skills) {
+            String q = """
+                insert into skill_tb (resume_id, name, role) values (?, ?, ?)
+                """;
 
-
-
-
-
+            Query query = em.createNativeQuery(q);
+            query.setParameter(1, resumeId);
+            query.setParameter(2, skills);
+            query.setParameter(3, 1);
+            query.executeUpdate();
+        }
+    }
 
 }

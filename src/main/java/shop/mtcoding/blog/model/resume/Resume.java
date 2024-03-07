@@ -2,6 +2,7 @@ package shop.mtcoding.blog.model.resume;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
@@ -14,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Table(name = "resume_tb")
-@Getter
-@Setter
+@Data
 @Entity
 public class Resume {
     @Id
