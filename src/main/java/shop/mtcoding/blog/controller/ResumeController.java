@@ -42,7 +42,7 @@ public class ResumeController {
         // 이 이력서 max값과 skill 값을 매칭시켜서 같이 저장해야 하기 때문! (1:N)
         // 어떤 이력서에 skill을 저장해야 할 지 알려줘야 하기 때문에 max값(=최신 이력서)을 뽑는다.
         // for문도 여기서 돌리는게 아니다.
-        Integer resumeId = resumeRepository.saveResume(requestDTO);
+        Integer resumeId = resumeRepository.saveResume(requestDTO,sessionUser);
 
         // 스킬에 저장! requestDTO 중에서 저장이 안 된 것은 List<Strong>이니까 getSkills를 해준다!
         skillRepository.saveSkill(requestDTO.getSkills(), resumeId);
@@ -61,13 +61,17 @@ public class ResumeController {
         //유저 1명이 여러개의 이력서를 작성했을 수도 있기에 List<>로 가져옴
         List<ResumeResponse.ResumeViewDTO> resumeList = resumeRepository.findAllResumeUserId(id);
         System.out.println(resumeList);
+        //-------
+
+//        List<SkillResponse.ResumeSkillDTO> skillList = resumeRepository.findAllByResumeId(1);
+//        System.out.println(skillList);
 
         //우리가 아까만든 생성자에 resumeList 값들이 들어간다
         for (int i = 0; i < resumeList.size(); i++) {
             ResumeResponse.ResumeViewDTO dto = resumeList.get(i);
             dto.setSkillList(resumeRepository.findAllByResumeId(dto.getId()));
         }
-
+//
         request.setAttribute("resumeList", resumeList);
         System.out.println(request);    // 이건 스킬추카하고 나서 리스트
 

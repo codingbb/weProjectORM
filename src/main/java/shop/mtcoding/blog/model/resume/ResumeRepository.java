@@ -19,14 +19,14 @@ public class ResumeRepository {
     private final EntityManager em;
 
     @Transactional
-    public Integer saveResume(ResumeRequest.ResumeWriteDTO requestDTO) {
+    public Integer saveResume(ResumeRequest.ResumeWriteDTO requestDTO ,User sessionUser) {
         String q = """
-                insert into resume_tb (user_id, area, edu, career, introduce, port_link, title, is_public, created_at) 
+                insert into resume_tb (user_id, area, edu, career, introduce, port_link, title, is_public,created_at) 
                 values (?, ?, ?, ?, ?, ?, ?, ?, now())
                 """;
 
         Query query = em.createNativeQuery(q);
-        query.setParameter(1, requestDTO.getUserId());
+        query.setParameter(1, sessionUser.getId());
         query.setParameter(2, requestDTO.getArea());
         query.setParameter(3, requestDTO.getEdu());
         query.setParameter(4, requestDTO.getCareer());
@@ -50,16 +50,16 @@ public class ResumeRepository {
 
     }
 
-//     public List<Resume> findAll() {
-//          String q = """
-//                  select * from resume_tb order by id desc
-//                  """;
-//
-//          Query query = em.createNativeQuery(q, Resume.class);
-//          List<Resume> resumeList = query.getResultList();
-//
-//          return resumeList;
-//      }
+     public List<Resume> findAll() {
+          String q = """
+                  select * from resume_tb order by id desc
+                  """;
+
+          Query query = em.createNativeQuery(q, Resume.class);
+          List<Resume> resumeList = query.getResultList();
+
+          return resumeList;
+      }
 
     public List<Resume> findByUserId(User sessionUser) {
         String q = """
@@ -112,7 +112,7 @@ public class ResumeRepository {
     public List<ResumeResponse.ResumeViewDTO> findAllResumeUserId(Integer id) {
         //user id가 1인
         String q = """
-                select rt.id ,rt.title, rt.edu, rt.career, rt.area from resume_tb rt where user_id = ?
+                select rt.id,rt.user_id ,rt.title, rt.edu, rt.career, rt.area from resume_tb rt where user_id = ?
                 """;
 
         Query query = em.createNativeQuery(q);
@@ -127,16 +127,17 @@ public class ResumeRepository {
 
     public List<SkillResponse.ResumeSkillDTO> findAllByResumeId(Integer id) {
         String q = """
-                select st.name from skill_tb st 
+                select st.id ,st.name from skill_tb st 
                 inner join resume_tb rt on st.resume_id = rt.id where rt.id =?
                 """;
 
         Query query = em.createNativeQuery(q);
-        query.setParameter(1,id);
+        query.setParameter(1, id);
 
-        JpaResultMapper mapper = new JpaResultMapper(); // 이거안쓰면 DTO 타입으로 못받아오고 Object 로 가져와야함
-        List<SkillResponse.ResumeSkillDTO> resumeSKillList = mapper.list(query, SkillResponse.ResumeSkillDTO.class);
+        JpaResultMapper mapper = new JpaResultMapper(); // 이거안쓰면 DTO 타입으로 못받아온다.
+        mapper.list(query, SkillResponse.ResumeSkillDTO.class);
 
-        return resumeSKillList;
+        return mapper.list(query, SkillResponse.ResumeSkillDTO.class);
+
     }
 }

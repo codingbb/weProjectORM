@@ -59,6 +59,10 @@ insert into skill_tb (resume_id, name, role) values(2, 'jQuery', 1);
 insert into skill_tb (resume_id, name, role) values(2, 'Oracle', 1);
 insert into skill_tb (resume_id, name, role) values(3, 'React', 1);
 insert into skill_tb (resume_id, name, role) values(3, 'Java', 1);
+insert into skill_tb (resume_id, name, role) values(4, 'jQuery', 1);
+insert into skill_tb (resume_id, name, role) values(5, 'Oracle', 1);
+insert into skill_tb (resume_id, name, role) values(5, 'React', 1);
+insert into skill_tb (resume_id, name, role) values(5, 'Java', 1);
 
 
 -- 스킬 테이블 (기업)

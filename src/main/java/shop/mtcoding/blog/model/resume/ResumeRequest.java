@@ -12,7 +12,6 @@ import java.util.List;
 public class ResumeRequest {
 
     @Data
-    @NoArgsConstructor
     public static class ResumeWriteDTO {
         private Integer id; //이력서 아이디
         private Integer userId;

@@ -31,7 +31,7 @@ public class SkillRepository {
 
             Query query = em.createNativeQuery(q);
             query.setParameter(1, resumeId);
-            query.setParameter(2, skills);
+            query.setParameter(2, skill);
             query.setParameter(3, 1);
             query.executeUpdate();
         }

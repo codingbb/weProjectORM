@@ -9,16 +9,19 @@ import java.util.List;
 
 public class ResumeResponse {
 
+
     @Data
     public static class ResumeViewDTO {
         private Integer id;
+        private Integer userId;
         private String title;
         private String edu;
         private String area;
         private String career;
 
-        public ResumeViewDTO(Integer id, String title, String edu, String area, String career) {
+        public ResumeViewDTO(Integer id, Integer userId, String title, String edu, String area, String career) {
             this.id = id;
+            this.userId = userId;
             this.title = title;
             this.edu = edu;
             this.area = area;
